@@ -1,39 +1,58 @@
 import turtle
-tela = turtle.Screen()
-tela.title("Clique para aparecer uma maça")
-tela.bgcolor("White")
-
+import random
 t = turtle.Turtle()
-t.hideturtle()
-t.speed(0)
+turtle.Screen ().screensize(800,500)
+turtle.tracer(False)
 
-def desenhar_maça(x, y):
-    t.penup()
-    t.goto(x, y - 40)
-    t.pendown()
+var = random.randint(0,100)
 
-    t.color("red")
+def laranja(var):
+    t.speed(5)
+    t.color("orange")
     t.begin_fill()
-    t.circle(40)
+    t.circle (60)
     t.end_fill()
-    
-    t.penup()
-    t.goto(x, y + 40)
-    t.pendown()
-    t.color("black")
-    t.pensize(5)
-    t.setheading(90)
-    t.forward(20)
+    caule(var)
+    folha(var)
 
+def folha(var):
+    t.color("green")
+    t.penup()
+    t.left(90)
+    t.forward(100)
+    t.pendown()
+    t.begin_fill()
+    t.circle(60, 90)
+    t.left(93)
+    t.circle(60, 90)
+    t.end_fill()
+
+def caule(var):
+    t.color("brown")
+    t.begin_fill()
+    t.circle(30,90)
+    t.right(93)
+    t.forward(5)
+    t.right(60)
+    t.circle(-30, 180)
+    t.end_fill()
+
+def folha(var):
     t.color("green")
     t.begin_fill()
-    t.circle(15, 90)
-    t.left(90)
-    t.circle(15, 90)
+    t.circle(60, 90)
+    t.left(93)
+    t.circle(60, 90)
     t.end_fill()
-    
 
-    
-tela.onscreenclick(desenhar_maça)
+def spawnlaranja(cordX,cordY):
+    t.penup()
+    t.goto(cordX,cordY)
+    t.pendown()
+    size = random.randint(50,60)
+    laranja(size)
+
+turtle.onscreenclick(spawnlaranja,3)
+
 
 turtle.done()
