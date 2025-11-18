@@ -33,12 +33,6 @@ def desenhar_maça(x, y):
     t.end_fill()
     
 
-    t.color("green")
-    t.begin_fill()
-    t.circle(15, 90)
-    t.right(90)
-    t.circle(15, 90)
-    t.end_fill()
     
 tela.onscreenclick(desenhar_maça)
 
